@@ -1,0 +1,13 @@
+/* Esconder o texto original */
+span.css-mepu61-title {
+    font-size: 0 !important;
+    line-height: 0 !important;
+}
+
+/* Mostrar o novo texto */
+span.css-mepu61-title::after {
+    content: "O seu microfone está silenciado pelo moderador 😎" !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    display: block !important;
+}
