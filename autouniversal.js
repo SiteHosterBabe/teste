@@ -1,25 +1,3 @@
-// CSS obrigatório
-if (!document.getElementById('popup-style')) {
-    const style = document.createElement('style');
-    style.id = 'popup-style';
-    style.innerHTML = `
-        .professional-notification-overlay {
-            position: fixed;
-            top:0;
-            left:0;
-            width:100%;
-            height:100%;
-            background: rgba(0,0,0,0.65);
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            z-index:999999;
-        }
-    `;
-    document.head.appendChild(style);
-}
-
-// função
 function showWelcomeNotification() {
     if (document.getElementById('professional-notification-overlay')) return;
 
@@ -36,6 +14,7 @@ function showWelcomeNotification() {
         box-shadow:0 40px 80px rgba(0,0,0,0.35);
         overflow:hidden;
         font-family:sans-serif;
+        position:relative;
     `;
 
     box.innerHTML = `
@@ -82,10 +61,9 @@ function showWelcomeNotification() {
     overlay.appendChild(box);
     document.body.appendChild(overlay);
 
+    // 🚫 NÃO fecha automaticamente
+
     document.getElementById("fecharPopup").onclick = () => {
         overlay.remove();
     };
 }
-
-// EXECUTAR
-showWelcomeNotification();
