@@ -2,7 +2,7 @@
     // ============================================================
     // CONFIGURAÇÕES GLOBAIS
     // ============================================================
-    const WHATSAPP_NUMBER  = '5585999999999';
+    const WHATSAPP_NUMBER  = '5511958934922';
     const WHATSAPP_MESSAGE = 'Olá! Tenho interesse neste veículo.';
     const WHATSAPP_ICON_URL = 'https://confirent.pt/wp-content/uploads/2023/03/whatsapp-icone-2.png';
     const URL_JSON = 'https://raw.githubusercontent.com/SiteHosterBabe/universalauto/refs/heads/main/vinijunior.json';
@@ -536,7 +536,7 @@
             entrarHeader.parentNode.replaceChild(clone, entrarHeader);
             clone.addEventListener('click', (e) => {
                 e.preventDefault();
-                window.location.href = 'https://anonclub.space/carros';
+                window.location.href = 'https://universalauto.xyz/carros';
             });
         }
         const filterCadastrar = document.querySelector('.VehiclesFilters_buttonsContainer__lY4oa button.LdsButton-module_lds-button--contained-primary__6r3Mk');
