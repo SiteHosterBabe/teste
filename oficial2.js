@@ -1404,10 +1404,23 @@
     }
     function updateFavicon() {
         const newFaviconUrl = UA_LOGO_URL;
-        let existingFavicon = document.querySelector('link[rel="shortcut icon"], link[rel="icon"]');
-        if (existingFavicon) {
-            if (existingFavicon.getAttribute('href') !== newFaviconUrl) existingFavicon.setAttribute('href', newFaviconUrl);
-        } else {
+        // Apanha qualquer variante de favicon, incluindo /favicon.svg
+        const selectors = [
+            'link[rel="shortcut icon"]',
+            'link[rel="icon"]',
+            'link[href="/favicon.svg"]'
+        ];
+        let found = false;
+        selectors.forEach(sel => {
+            document.querySelectorAll(sel).forEach(link => {
+                if (link.getAttribute('href') !== newFaviconUrl) {
+                    link.setAttribute('href', newFaviconUrl);
+                    link.setAttribute('type', 'image/png');
+                }
+                found = true;
+            });
+        });
+        if (!found) {
             const newLink = document.createElement('link');
             newLink.rel = 'shortcut icon';
             newLink.href = newFaviconUrl;
